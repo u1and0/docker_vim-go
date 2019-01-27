@@ -1,6 +1,6 @@
 Dockerfile for [u1and0/vim-go](http://hub.docker.com/r/u1and0/vim-go)
 
-![screen]()
+![screen](https://raw.githubusercontent.com/u1and0/docker_vim-go/screenshot/Screenshot%20from%202019-01-27%2020-42-18.png)
 
 
 # Install & Run
