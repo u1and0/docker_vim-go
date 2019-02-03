@@ -10,24 +10,26 @@ ENV GOPATH="/root/go"\
 # Install go
 RUN pacman -Sy --noconfirm go &&\
     go get\
-    github.com/nsf/gocode \
-    github.com/alecthomas/gometalinter \
-    golang.org/x/tools/cmd/goimports \
-    golang.org/x/tools/cmd/guru \
-    golang.org/x/tools/cmd/gorename \
-    github.com/golang/lint/golint \
-    github.com/rogpeppe/godef \
-    github.com/kisielk/errcheck \
-    github.com/jstemmer/gotags \
-    github.com/klauspost/asmfmt/cmd/asmfmt \
-    github.com/fatih/motion \
-    github.com/zmb3/gogetdoc \
-    github.com/zmb3/gogetdoc \
-    github.com/josharian/impl
+        github.com/nsf/gocode \
+        github.com/alecthomas/gometalinter \
+        golang.org/x/tools/cmd/goimports \
+        golang.org/x/tools/cmd/guru \
+        golang.org/x/tools/cmd/gorename \
+        github.com/golang/lint/golint \
+        github.com/rogpeppe/godef \
+        github.com/kisielk/errcheck \
+        github.com/jstemmer/gotags \
+        github.com/klauspost/asmfmt/cmd/asmfmt \
+        github.com/fatih/motion \
+        github.com/zmb3/gogetdoc \
+        github.com/zmb3/gogetdoc \
+        github.com/josharian/impl &&\
+    rm -rf ${GOPATH}/src/*
 
-RUN nvim +GoInstallBinaries +q
+RUN nvim +GoInstallBinaries +q &&\
+    rm -rf ${GOPATH}/src/*
 
 LABEL maintainer="u1and0 <e01.ando60@gmail.com>"\
       description="my golang env with neovim"\
       description.ja="自分用golang開発環境with neovim"\
-      version="golang:v1.0.0"
+      version="golang:v1.1.0"
