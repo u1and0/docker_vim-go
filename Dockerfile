@@ -29,7 +29,9 @@ RUN pacman -Sy --noconfirm go &&\
 RUN nvim +GoInstallBinaries +q &&\
     rm -rf ${GOPATH}/src/*
 
+ENTRYPOINT ["/bin/bash"]
+
 LABEL maintainer="u1and0 <e01.ando60@gmail.com>"\
       description="my golang env with neovim"\
       description.ja="自分用golang開発環境with neovim"\
-      version="golang:v1.1.0"
+      version="vim-go:v1.2.0"
