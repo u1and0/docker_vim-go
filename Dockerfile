@@ -53,4 +53,4 @@ RUN nvim +GoUpdateBinaries +q
 LABEL maintainer="u1and0 <e01.ando60@gmail.com>"\
       description="golang env with neovim"\
       description.ja="golang開発環境with neovim"\
-      version="vim-go:v2.0.0"
+      version="vim-go:v2.1.0"

@@ -41,5 +41,10 @@ docker run -it --rm -v `pwd`:/work -w /work u1and0/vim-go
 
 
 # Version
+* v2.1.0          [mod] rebuild from u1and0/zplug:v5.1.0
+* v2.0.0          [mod] from u1and0/archlinux user u1and0
+* v1.3.0          [add] go REPL(gore) & ghq (package manager)
+* v1.2.0          [mod] ENTRYPOINT nvim -> bash for restart nvim
+* v1.1.0          [mod] remove /root/go/src after building
 * v1.0.0          ditfiles version v1.13.3 + Neovim
 
