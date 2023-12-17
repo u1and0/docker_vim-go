@@ -4,15 +4,16 @@
 FROM u1and0/zplug:latest
 
 # Install go
-RUN sudo pacman -Syu --noconfirm go &&\
-    pacman -Qtdq | xargs -r sudo pacman --noconfirm -Rcns
+USER root
+RUN pacman -Syu --noconfirm go &&\
+    pacman -Qtdq | xargs -r pacman --noconfirm -Rcns
 # pacman -Scc の代わり
 
 # gopath setting
 # go install より前に指定する
-ARG LOUSER=u1and0
+USER u1and0
 ENV GO111MODULE="on"\
-    GOPATH="/home/${LOUSER}/go"\
+    GOPATH="/home/u1and0/go"\
     PATH="$GOPATH/bin:$PATH"
 
 # May be included vim-go GoUpdateBinaries command
@@ -40,10 +41,10 @@ RUN nvim +GoUpdateBinaries +LspInstallServer +q && go clean -cache
 # Install REPL
 RUN go install github.com/x-motemen/gore/cmd/gore@latest &&\
     go install github.com/stamblerre/gocode@latest &&\
-    go get github.com/k0kubun/pp@latest &&\
     go clean -cache
+    # go install github.com/k0kubun/pp@latest &&\
 
 LABEL maintainer="u1and0 <e01.ando60@gmail.com>"\
       description="golang env with neovim"\
       description.ja="golang開発環境with neovim"\
-      version="vim-go:v3.0.0"
+      version="vim-go:v3.0.1"
