@@ -1,7 +1,7 @@
 # Usage:
 # docker run -it --rm -v `pwd`:/work -w /work u1and0/golang
 
-FROM u1and0/zplug:latest
+FROM u1and0/zplug:arm64
 
 # Install go
 USER root
@@ -41,6 +41,7 @@ RUN nvim +GoUpdateBinaries +LspInstallServer +q && go clean -cache
 # Install REPL
 RUN go install github.com/x-motemen/gore/cmd/gore@latest &&\
     go install github.com/stamblerre/gocode@latest &&\
+    go install github.com/codegangsta/gin@latest &&\
     go clean -cache
     # go install github.com/k0kubun/pp@latest &&\
 
